@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zacky & Sivanka — Ruang Cerita & Kenangan Kita</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Playfair Display, Plus Jakarta Sans & Dancing Script -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Konfigurasi Warna & Font Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        script: ['"Dancing Script"', 'cursive'],
+                    },
+                    colors: {
+                        cream: {
+                            50: '#FAF7F2',
+                            100: '#F4EFE6',
+                            200: '#EAE0D0',
+                            300: '#DDD0BA',
+                        },
+                        dusty: {
+                            100: '#F9ECEE',
+                            200: '#F2D6DA',
+                            300: '#E5B4BC',
+                            400: '#D48C94',
+                            500: '#C2747D',
+                            600: '#A65861',
+                        },
+                        sage: {
+                            100: '#EDF2EE',
+                            200: '#D6E2D8',
+                            400: '#8FA893',
+                            600: '#5E7862',
+                        },
+                        cocoa: {
+                            700: '#4D413D',
+                            800: '#382E2B',
+                            900: '#241D1B',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-cream-50 text-cocoa-800 font-sans antialiased selection:bg-dusty-200 selection:text-cocoa-900">
+
+    <!-- ==================== NAVIGASI ATAS ==================== -->
+    <nav class="sticky top-0 z-40 bg-cream-50/90 backdrop-blur-md border-b border-cream-200/80 transition-all">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+            <!-- Emblem & Logo Zacky & Sivanka -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="px-3 py-1.5 rounded-full bg-dusty-100 border border-dusty-200 flex items-center gap-1.5 text-dusty-600 font-serif font-semibold text-sm group-hover:scale-105 transition-transform shadow-2xs">
+                    <span>Z</span>
+                    <i data-lucide="heart" class="w-3.5 h-3.5 fill-dusty-400 text-dusty-500"></i>
+                    <span>S</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-lg sm:text-xl font-bold tracking-tight text-cocoa-900 leading-none">
+                        Zacky <span class="italic font-normal text-dusty-500">&amp;</span> Sivanka
+                    </span>
+                    <span class="text-[10px] uppercase tracking-widest text-cocoa-700/70 mt-0.5 hidden sm:block">Our Little Forever</span>
+                </div>
+            </a>
+
+            <!-- Tombol Aksi Navigasi -->
+            <div class="flex items-center gap-2 sm:gap-4">
+                <a href="#galeri" class="hidden md:inline-block text-sm font-medium text-cocoa-700 hover:text-dusty-500 px-3 py-2 rounded-full transition-colors">
+                    Jejak Langkah
+                </a>
+                <button onclick="openAddModal()" class="inline-flex items-center gap-2 bg-dusty-400 hover:bg-dusty-500 text-white text-xs sm:text-sm font-medium px-4 py-2.5 sm:px-5 sm:py-2.5 rounded-full shadow-sm hover:shadow transition-all active:scale-95">
+                    <i data-lucide="plus" class="w-4 h-4"></i>
+                    <span>Simpan Kenangan</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== BAGIAN HERO ==================== -->
+    <header class="relative overflow-hidden pt-12 pb-16 sm:pt-20 sm:pb-24 px-4 sm:px-6 lg:px-8">
+        <!-- Dekorasi Latar Lembut & Watermark Monogram Z & S -->
+        <div class="absolute inset-0 pointer-events-none -z-10 flex items-center justify-center overflow-hidden">
+            <div class="absolute top-6 left-4 sm:left-16 w-72 h-72 bg-dusty-200/40 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-4 right-4 sm:right-16 w-80 h-80 bg-sage-200/40 rounded-full blur-3xl"></div>
+            <span class="font-serif italic font-bold text-[9rem] sm:text-[15rem] md:text-[20rem] text-cream-200/55 select-none leading-none tracking-tighter">
+                Z &amp; S
+            </span>
+        </div>
+
+        <div class="max-w-4xl mx-auto text-center relative">
+            <!-- Emblem Inisial -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/90 border border-cream-200 text-cocoa-700 text-xs sm:text-sm font-medium mb-6 shadow-2xs">
+                <span class="font-serif font-bold text-dusty-500">Z &hearts; S</span>
+                <span class="text-cream-300">|</span>
+                <span>Ruang Digital Khusus Cerita Kita Berdua</span>
+            </div>
+
+            <!-- Tulisan Sambung Romantis -->
+            <p class="font-script text-2xl sm:text-3xl text-dusty-500 mb-2">
+                Kisah Perjalanan Cinta
+            </p>
+
+            <!-- Judul Utama -->
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold text-cocoa-900 leading-tight mb-6 tracking-tight">
+                Zacky <span class="italic font-normal text-dusty-400">&amp;</span> Sivanka
+            </h1>
+
+            <!-- Subjudul Puitis -->
+            <p class="text-base sm:text-lg text-cocoa-700/90 max-w-2xl mx-auto leading-relaxed mb-9 font-light">
+                Dari tawa sederhana di sudut hari hingga langkah-langkah panjang yang kita tempuh berdua. Di ruang kecil ini, setiap tatapan, cerita, dan doa antara Zacky dan Sivanka akan selalu abadi.
+            </p>
+
+            <!-- Tombol CTA -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4">
+                <a href="#galeri" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-cocoa-800 hover:bg-cocoa-900 text-cream-50 font-medium px-7 py-3.5 rounded-full shadow-md hover:shadow-lg transition-all">
+                    <i data-lucide="images" class="w-4 h-4"></i>
+                    <span>Jelajahi Album Kita</span>
+                </a>
+                <button onclick="openAddModal()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-cream-100 text-cocoa-800 border border-cream-300 font-medium px-7 py-3.5 rounded-full shadow-2xs transition-all">
+                    <i data-lucide="camera" class="w-4 h-4 text-dusty-500"></i>
+                    <span>Tambah Momen Baru</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== PENGHITUNG WAKTU KEBERSAMAAN ==================== -->
+    <section class="px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
+        <div class="max-w-5xl mx-auto bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-cream-200/90 relative overflow-hidden">
+            <!-- Aksen Garis Atas -->
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-dusty-300 via-dusty-400 to-sage-400"></div>
+
+            <!-- Header & Tombol Atur Tanggal -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 mb-7 border-b border-cream-100">
+                <div>
+                    <div class="flex items-center gap-2 text-dusty-500 text-xs font-semibold uppercase tracking-wider mb-1.5">
+                        <i data-lucide="calendar-heart" class="w-4 h-4"></i>
+                        <span id="timerStatusBadge">Detik Demi Detik Kebersamaan</span>
+                    </div>
+                    <h2 id="coupleTitleDisplay" class="font-serif text-xl sm:text-2xl md:text-3xl font-semibold text-cocoa-900">
+                        Zacky &amp; Sivanka telah melangkah bersama selama
+                    </h2>
+                    <p id="startDateText" class="text-xs sm:text-sm text-cocoa-700/75 mt-1">
+                        Sejak 14 Februari 2024
+                    </p>
+                </div>
+
+                <button onclick="openDateModal()" class="self-start md:self-center inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-cocoa-700 hover:text-cocoa-900 bg-cream-100 hover:bg-cream-200/80 px-4 py-2.5 rounded-full transition-colors border border-cream-200">
+                    <i data-lucide="settings-2" class="w-4 h-4 text-dusty-500"></i>
+                    <span>Atur Tanggal Spesial Zacky &amp; Sivanka</span>
+                </button>
+            </div>
+
+            <!-- Kotak Angka Penghitung 6 Kolom (Tahun, Bulan, Hari, Jam, Menit, Detik) -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 text-center">
+                <div class="bg-cream-50 rounded-2xl p-4 border border-cream-200/70">
+                    <span id="countYears" class="block font-serif text-3xl sm:text-4xl font-bold text-cocoa-900">0</span>
+                    <span class="text-xs font-medium text-cocoa-700 mt-1 block">Tahun</span>
+                </div>
+                <div class="bg-cream-50 rounded-2xl p-4 border border-cream-200/70">
+                    <span id="countMonths" class="block font-serif text-3xl sm:text-4xl font-bold text-cocoa-900">0</span>
+                    <span class="text-xs font-medium text-cocoa-700 mt-1 block">Bulan</span>
+                </div>
+                <div class="bg-dusty-100/60 rounded-2xl p-4 border border-dusty-200/70">
+                    <span id="countDays" class="block font-serif text-3xl sm:text-4xl font-bold text-dusty-500">0</span>
+                    <span class="text-xs font-medium text-cocoa-700 mt-1 block">Hari</span>
+                </div>
+                <div class="bg-cream-50 rounded-2xl p-4 border border-cream-200/70">
+                    <span id="countHours" class="block font-serif text-3xl sm:text-4xl font-bold text-cocoa-800">00</span>
+                    <span class="text-xs font-medium text-cocoa-700 mt-1 block">Jam</span>
+                </div>
+                <div class="bg-cream-50 rounded-2xl p-4 border border-cream-200/70">
+                    <span id="countMinutes" class="block font-serif text-3xl sm:text-4xl font-bold text-cocoa-800">00</span>
+                    <span class="text-xs font-medium text-cocoa-700 mt-1 block">Menit</span>
+                </div>
+                <div class="bg-sage-100/80 rounded-2xl p-4 border border-sage-200/80">
+                    <span id="countSeconds" class="block font-serif text-3xl sm:text-4xl font-bold text-sage-600">00</span>
+                    <span class="text-xs font-medium text-cocoa-700 mt-1 block">Detik</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== GALERI KENANGAN ==================== -->
+    <main id="galeri" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+        <!-- Judul Bagian & Filter Kategori -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+            <div>
+                <span class="text-xs font-semibold uppercase tracking-wider text-sage-600 block mb-1">Album &amp; Cerita Kita</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cocoa-900">Jejak Langkah Zacky &amp; Sivanka</h2>
+            </div>
+
+            <!-- Tombol Filter Kategori -->
+            <div id="filterContainer" class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0">
+                <button onclick="setFilter('Semua')" data-filter="Semua" class="filter-btn active whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all bg-cocoa-800 text-white shadow-2xs">
+                    Semua
+                </button>
+                <button onclick="setFilter('Kencan Pertama')" data-filter="Kencan Pertama" class="filter-btn whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-cocoa-700 hover:bg-cream-100 border border-cream-200">
+                    Kencan Pertama
+                </button>
+                <button onclick="setFilter('Liburan')" data-filter="Liburan" class="filter-btn whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-cocoa-700 hover:bg-cream-100 border border-cream-200">
+                    Liburan
+                </button>
+                <button onclick="setFilter('Momen Harian')" data-filter="Momen Harian" class="filter-btn whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-cocoa-700 hover:bg-cream-100 border border-cream-200">
+                    Momen Harian
+                </button>
+                <button onclick="setFilter('Spesial')" data-filter="Spesial" class="filter-btn whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-cocoa-700 hover:bg-cream-100 border border-cream-200">
+                    Spesial
+                </button>
+            </div>
+        </div>
+
+        <!-- Grid Galeri Bergaya Polaroid / Editorial -->
+        <div id="galleryGrid" class="columns-1 sm:columns-2 lg:columns-3 gap-7 space-y-7">
+            <!-- Kartu kenangan akan dirender secara dinamis lewat JavaScript -->
+        </div>
+
+        <!-- Empty State Estetik & Hangat untuk Zacky & Sivanka -->
+        <div id="emptyState" class="hidden text-center py-16 sm:py-20 px-6 bg-white rounded-3xl border border-dashed border-cream-300 shadow-2xs">
+            <div class="relative w-20 h-20 rounded-full bg-dusty-100 text-dusty-500 flex items-center justify-center mx-auto mb-5">
+                <i data-lucide="camera" class="w-9 h-9"></i>
+                <div class="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-sage-400 text-white flex items-center justify-center shadow-xs border-2 border-white">
+                    <i data-lucide="heart" class="w-4 h-4 fill-white"></i>
+                </div>
+            </div>
+            <span class="font-script text-2xl text-dusty-500 block mb-1">Lembaran Baru Zacky &amp; Sivanka</span>
+            <h3 id="emptyStateTitle" class="font-serif text-2xl sm:text-3xl font-bold text-cocoa-900 mb-3">
+                Album Kenangan Kita Masih Menunggu Cerita Pertama
+            </h3>
+            <p id="emptyStateDesc" class="text-sm sm:text-base text-cocoa-700/80 max-w-lg mx-auto mb-7 leading-relaxed">
+                Setiap foto menyimpan senyum dan tawa yang tak terulang. Yuk unggah potret kebersamaan Zacky &amp; Sivanka yang paling berkesan untuk memulai galeri cinta ini!
+            </p>
+            <button onclick="openAddModal()" class="inline-flex items-center gap-2.5 bg-dusty-400 hover:bg-dusty-500 text-white text-sm sm:text-base font-medium px-7 py-3.5 rounded-full shadow-sm hover:shadow transition-all active:scale-95">
+                <i data-lucide="image-plus" class="w-5 h-5"></i>
+                <span>Tambah Foto Kenangan Pertama</span>
+            </button>
+        </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-cream-100/90 border-t border-cream-200 py-12 px-4 text-center">
+        <div class="max-w-xl mx-auto">
+            <div class="inline-flex items-center justify-center gap-1.5 px-4 py-1.5 rounded-full bg-white text-dusty-500 shadow-2xs border border-cream-200 mb-4 font-serif font-semibold text-sm">
+                <span>Z</span>
+                <i data-lucide="heart" class="w-3.5 h-3.5 fill-dusty-400"></i>
+                <span>S</span>
+            </div>
+            <p class="font-serif italic text-lg sm:text-xl text-cocoa-800 mb-2">
+                "Di mana pun langkah kaki membawa kita pergi, pulangku selalu ke pelukanmu."
+            </p>
+            <p class="text-xs sm:text-sm font-medium text-cocoa-700/80">
+                Dibuat dengan cinta untuk Zacky &amp; Sivanka &hearts;
+            </p>
+        </div>
+    </footer>
+
+    <!-- ==================== MODAL SIMPAN KENANGAN ZACKY & SIVANKA ==================== -->
+    <div id="addModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-cocoa-900/55 backdrop-blur-xs transition-opacity" onclick="handleBackdropClick(event, 'addModal')">
+        <div class="bg-cream-50 w-full max-w-lg rounded-3xl shadow-2xl border border-cream-200 overflow-hidden max-h-[92vh] flex flex-col">
+            <!-- Header Modal -->
+            <div class="px-6 py-5 bg-white border-b border-cream-200 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-full bg-dusty-100 text-dusty-500 flex items-center justify-center">
+                        <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-lg sm:text-xl font-bold text-cocoa-900">Simpan Kenangan Zacky &amp; Sivanka</h3>
+                        <p class="text-[11px] text-cocoa-700/70">Abadikan momen berdua agar tak lekang oleh waktu</p>
+                    </div>
+                </div>
+                <button onclick="closeAddModal()" class="p-2 rounded-full text-cocoa-700 hover:bg-cream-100 transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Form Konten (Scrollable) -->
+            <form id="memoryForm" onsubmit="handleSaveMemory(event)" class="p-6 overflow-y-auto space-y-4">
+                <!-- Pilihan Sumber Gambar (Upload File vs URL) -->
+                <div>
+                    <label class="block text-sm font-medium text-cocoa-800 mb-2">Foto Kenangan Berdua</label>
+                    <div class="grid grid-cols-2 gap-2 p-1 bg-cream-200/60 rounded-xl mb-3">
+                        <button type="button" id="tabUpload" onclick="switchImageMode('upload')" class="py-2 text-xs sm:text-sm font-medium rounded-lg bg-white text-cocoa-900 shadow-2xs transition-all">
+                            Unggah dari Perangkat
+                        </button>
+                        <button type="button" id="tabUrl" onclick="switchImageMode('url')" class="py-2 text-xs sm:text-sm font-medium rounded-lg text-cocoa-700 hover:text-cocoa-900 transition-all">
+                            Tempel Tautan (URL)
+                        </button>
+                    </div>
+
+                    <!-- Input Upload File -->
+                    <div id="uploadInputContainer">
+                        <label for="photoFile" class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-cream-300 hover:border-dusty-400 rounded-2xl bg-white cursor-pointer transition-colors p-4 text-center">
+                            <i data-lucide="upload-cloud" class="w-7 h-7 text-dusty-500 mb-1"></i>
+                            <span class="text-xs sm:text-sm font-medium text-cocoa-800">Pilih foto dari galeri HP atau Laptop</span>
+                            <span class="text-[11px] text-cocoa-700/70 mt-0.5">Otomatis dioptimalkan agar ringan tersimpan</span>
+                            <input id="photoFile" type="file" accept="image/*" class="hidden" onchange="handleFilePreview(event)">
+                        </label>
+                    </div>
+
+                    <!-- Input URL Gambar -->
+                    <div id="urlInputContainer" class="hidden">
+                        <input type="url" id="photoUrl" placeholder="https://contoh.com/foto-zacky-sivanka.jpg" oninput="handleUrlPreview(this.value)" class="w-full px-4 py-3 rounded-xl bg-white border border-cream-300 text-sm focus:outline-none focus:border-dusty-400">
+                    </div>
+
+                    <!-- Pratinjau Foto -->
+                    <div id="imagePreviewWrapper" class="hidden mt-3 relative rounded-2xl overflow-hidden border border-cream-200 bg-cream-100">
+                        <img id="imagePreview" src="" alt="Pratinjau" class="w-full max-h-48 object-cover">
+                        <button type="button" onclick="clearSelectedImage()" class="absolute top-2 right-2 bg-cocoa-900/75 hover:bg-cocoa-900 text-white p-1.5 rounded-full text-xs" title="Hapus pilihan foto">
+                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Judul Kenangan -->
+                <div>
+                    <label for="memTitle" class="block text-sm font-medium text-cocoa-800 mb-1">Judul Kenangan</label>
+                    <input type="text" id="memTitle" required placeholder="Contoh: Senja Pertama di Tepian Sungai" class="w-full px-4 py-2.5 rounded-xl bg-white border border-cream-300 text-sm focus:outline-none focus:border-dusty-400">
+                </div>
+
+                <!-- Lokasi Kenangan -->
+                <div>
+                    <label for="memLocation" class="block text-sm font-medium text-cocoa-800 mb-1">Lokasi Kenangan</label>
+                    <div class="relative">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-dusty-500 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                        <input type="text" id="memLocation" required placeholder="Contoh: Kafe Sudut Kota, Banjarmasin" class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border border-cream-300 text-sm focus:outline-none focus:border-dusty-400">
+                    </div>
+                </div>
+
+                <!-- Tanggal & Kategori (2 Kolom) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="memDate" class="block text-sm font-medium text-cocoa-800 mb-1">Tanggal Kejadian</label>
+                        <input type="date" id="memDate" required class="w-full px-4 py-2.5 rounded-xl bg-white border border-cream-300 text-sm focus:outline-none focus:border-dusty-400">
+                    </div>
+                    <div>
+                        <label for="memCategory" class="block text-sm font-medium text-cocoa-800 mb-1">Kategori</label>
+                        <select id="memCategory" class="w-full px-4 py-2.5 rounded-xl bg-white border border-cream-300 text-sm focus:outline-none focus:border-dusty-400">
+                            <option value="Kencan Pertama">Kencan Pertama</option>
+                            <option value="Liburan">Liburan</option>
+                            <option value="Momen Harian">Momen Harian</option>
+                            <option value="Spesial">Spesial</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Cerita di Balik Foto -->
+                <div>
+                    <label for="memStory" class="block text-sm font-medium text-cocoa-800 mb-1">Cerita di Balik Foto</label>
+                    <textarea id="memStory" rows="3" required placeholder="Ceritakan tawa, obrolan, atau perasaan Zacky & Sivanka saat foto ini diambil..." class="w-full px-4 py-2.5 rounded-xl bg-white border border-cream-300 text-sm focus:outline-none focus:border-dusty-400 resize-none"></textarea>
+                </div>
+
+                <!-- Tombol Submit -->
+                <div class="pt-2 flex items-center justify-end gap-3">
+                    <button type="button" onclick="closeAddModal()" class="px-5 py-2.5 rounded-full text-sm font-medium text-cocoa-700 hover:bg-cream-200/70 transition-colors">
+                        Batal
+                    </button>
+                    <button type="submit" class="inline-flex items-center gap-2 bg-dusty-400 hover:bg-dusty-500 text-white text-sm font-medium px-6 py-2.5 rounded-full shadow-sm transition-all">
+                        <i data-lucide="heart" class="w-4 h-4 fill-white"></i>
+                        <span>Simpan Kenangan</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL LIGHTBOX DETAIL KENANGAN ==================== -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-cocoa-900/80 backdrop-blur-sm transition-opacity" onclick="handleBackdropClick(event, 'lightboxModal')">
+        <div class="bg-cream-50 w-full max-w-4xl rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-12 max-h-[90vh]">
+            <!-- Sisi Kiri: Foto Ukuran Penuh -->
+            <div class="md:col-span-7 bg-cocoa-900 flex items-center justify-center relative max-h-[50vh] md:max-h-[85vh]">
+                <img id="lbImage" src="" alt="Kenangan Zacky & Sivanka" class="w-full h-full object-contain">
+            </div>
+
+            <!-- Sisi Kanan: Cerita & Detail -->
+            <div class="md:col-span-5 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto bg-cream-50">
+                <div>
+                    <!-- Header Modal -->
+                    <div class="flex items-center justify-between gap-2 mb-4">
+                        <span id="lbCategory" class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-dusty-100 text-dusty-600">
+                            Kategori
+                        </span>
+                        <button onclick="closeLightbox()" class="p-2 rounded-full text-cocoa-700 hover:bg-cream-200/70 transition-colors" title="Tutup">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+
+                    <!-- Tanggal & Lokasi -->
+                    <div class="space-y-1.5 text-xs text-cocoa-700/80 mb-3">
+                        <div class="flex items-center gap-1.5">
+                            <i data-lucide="calendar" class="w-3.5 h-3.5 text-dusty-500"></i>
+                            <span id="lbDate">14 Februari 2024</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-sage-600"></i>
+                            <span id="lbLocation">Lokasi Kenangan</span>
+                        </div>
+                    </div>
+
+                    <!-- Judul -->
+                    <h3 id="lbTitle" class="font-serif text-2xl sm:text-3xl font-bold text-cocoa-900 leading-snug mb-4">
+                        Judul Kenangan
+                    </h3>
+
+                    <!-- Garis Pemisah Kecil -->
+                    <div class="w-12 h-1 bg-dusty-300 rounded-full mb-5"></div>
+
+                    <!-- Cerita Lengkap -->
+                    <p id="lbStory" class="text-sm sm:text-base text-cocoa-800/90 leading-relaxed whitespace-pre-line">
+                        Cerita kenangan...
+                    </p>
+                </div>
+
+                <!-- Footer Lightbox -->
+                <div class="pt-6 mt-6 border-t border-cream-200 flex items-center justify-between">
+                    <span class="text-xs italic text-cocoa-700/75 font-serif">Zacky &amp; Sivanka &hearts;</span>
+                    <button id="lbDeleteBtn" onclick="" class="inline-flex items-center gap-1.5 text-xs font-medium text-red-600 hover:text-red-700 hover:bg-red-50 px-3 py-2 rounded-full transition-colors">
+                        <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                        <span>Hapus Kenangan</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL ATUR TANGGAL SPESIAL ZACKY & SIVANKA ==================== -->
+    <div id="dateModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-cocoa-900/55 backdrop-blur-xs" onclick="handleBackdropClick(event, 'dateModal')">
+        <div class="bg-cream-50 w-full max-w-md rounded-3xl shadow-xl border border-cream-200 p-6 sm:p-7">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-xl font-bold text-cocoa-900">Atur Tanggal Spesial Zacky &amp; Sivanka</h3>
+                <button onclick="closeDateModal()" class="p-1.5 rounded-full text-cocoa-700 hover:bg-cream-200/70">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <p class="text-xs sm:text-sm text-cocoa-700/85 mb-5 leading-relaxed">
+                Sesuaikan hari bersejarah dimulainya kisah Zacky &amp; Sivanka agar penghitung waktu berjalan tepat hingga ke detiknya.
+            </p>
+            <form onsubmit="handleSaveAnniversary(event)" class="space-y-4">
+                <div>
+                    <label for="inputCoupleTitle" class="block text-xs font-semibold uppercase tracking-wider text-cocoa-700 mb-1.5">Judul Penghitung</label>
+                    <input type="text" id="inputCoupleTitle" required placeholder="Zacky & Sivanka telah melangkah bersama selama" class="w-full px-4 py-2.5 rounded-xl bg-white border border-cream-300 text-sm focus:outline-none focus:border-dusty-400">
+                </div>
+                <div>
+                    <label for="inputStartDate" class="block text-xs font-semibold uppercase tracking-wider text-cocoa-700 mb-1.5">Tanggal &amp; Waktu Spesial</label>
+                    <input type="datetime-local" id="inputStartDate" required class="w-full px-4 py-2.5 rounded-xl bg-white border border-cream-300 text-sm focus:outline-none focus:border-dusty-400">
+                </div>
+                <div class="pt-2 flex justify-end gap-2.5">
+                    <button type="button" onclick="closeDateModal()" class="px-4 py-2 rounded-full text-sm text-cocoa-700 hover:bg-cream-200/70">Batal</button>
+                    <button type="submit" class="bg-cocoa-800 hover:bg-cocoa-900 text-white text-sm font-medium px-5 py-2.5 rounded-full shadow-2xs">Simpan Tanggal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== NOTIFIKASI TOAST ==================== -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden items-center gap-2.5 bg-cocoa-900 text-cream-50 px-5 py-3 rounded-full shadow-lg text-sm font-medium transition-all">
+        <i data-lucide="heart" class="w-4 h-4 text-dusty-400 fill-dusty-400"></i>
+        <span id="toastMessage">Kenangan Zacky &amp; Sivanka tersimpan!</span>
+    </div>
+
+    <!-- ==================== SCRIPT APLIKASI ==================== -->
+    <script>
+        // --- 1. KONFIGURASI STORAGE (GALERI AWAL KOSONG TANPA FOTO BAWAAN) ---
+        const STORAGE_KEY_MEMORIES = 'zacky_sivanka_memories_v1';
+        const STORAGE_KEY_ANNIVERSARY = 'zacky_sivanka_anniversary_v1';
+
+        let memories = [];
+        let activeFilter = 'Semua';
+        let selectedImageBase64 = '';
+        let imageInputMode = 'upload';
+        let timerIntervalId = null;
+
+        let anniversaryData = {
+            title: 'Zacky & Sivanka telah melangkah bersama selama',
+            startDate: '2024-02-14T19:00'
+        };
+
+        // --- 2. INISIALISASI SAAT HALAMAN DIMUAT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            loadFromStorage();
+            renderGallery();
+            updateAnniversaryUI();
+            startCounterInterval();
+            lucide.createIcons();
+        });
+
+        function loadFromStorage() {
+            try {
+                const savedMemories = localStorage.getItem(STORAGE_KEY_MEMORIES);
+                if (savedMemories) {
+                    const parsed = JSON.parse(savedMemories);
+                    memories = Array.isArray(parsed) ? parsed : [];
+                } else {
+                    memories = [];
+                }
+
+                const savedAnniv = localStorage.getItem(STORAGE_KEY_ANNIVERSARY);
+                if (savedAnniv) {
+                    const parsedAnniv = JSON.parse(savedAnniv);
+                    if (parsedAnniv && parsedAnniv.startDate) {
+                        anniversaryData = parsedAnniv;
+                    }
+                }
+            } catch (e) {
+                console.error('Gagal memuat data:', e);
+                memories = [];
+            }
+        }
+
+        function saveMemoriesToStorage() {
+            try {
+                localStorage.setItem(STORAGE_KEY_MEMORIES, JSON.stringify(memories));
+            } catch (e) {
+                showToast('Penyimpanan browser penuh! Hapus beberapa foto atau gunakan URL gambar.');
+            }
+        }
+
+        // --- 3. PARSER TANGGAL LOKAL ANTI-ERROR & PENGHITUNG WAKTU REAL-TIME ---
+        function parseLocalDateTime(dateTimeStr) {
+            if (!dateTimeStr) return new Date(2024, 1, 14, 19, 0, 0);
+            const [datePart, timePart = '00:00'] = dateTimeStr.split('T');
+            const [year, month, day] = datePart.split('-').map(Number);
+            const [hour = 0, minute = 0, second = 0] = timePart.split(':').map(Number);
+            const parsed = new Date(year, (month || 1) - 1, day || 1, hour, minute, second);
+            return isNaN(parsed.getTime()) ? new Date(2024, 1, 14, 19, 0, 0) : parsed;
+        }
+
+        function updateAnniversaryUI() {
+            document.getElementById('coupleTitleDisplay').textContent = anniversaryData.title;
+            const dateObj = parseLocalDateTime(anniversaryData.startDate);
+            const formatted = dateObj.toLocaleDateString('id-ID', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+            document.getElementById('startDateText').textContent = `Sejak ${formatted}`;
+        }
+
+        function calculateCalendarDiff(startDate, endDate) {
+            let start = startDate <= endDate ? new Date(startDate) : new Date(endDate);
+            let end = startDate <= endDate ? new Date(endDate) : new Date(startDate);
+
+            let years = end.getFullYear() - start.getFullYear();
+            let months = end.getMonth() - start.getMonth();
+            let days = end.getDate() - start.getDate();
+            let hours = end.getHours() - start.getHours();
+            let minutes = end.getMinutes() - start.getMinutes();
+            let seconds = end.getSeconds() - start.getSeconds();
+
+            if (seconds < 0) {
+                seconds += 60;
+                minutes--;
+            }
+            if (minutes < 0) {
+                minutes += 60;
+                hours--;
+            }
+            if (hours < 0) {
+                hours += 24;
+                days--;
+            }
+            if (days < 0) {
+                const prevMonthLastDay = new Date(end.getFullYear(), end.getMonth(), 0).getDate();
+                days += prevMonthLastDay;
+                months--;
+            }
+            if (months < 0) {
+                months += 12;
+                years--;
+            }
+
+            return {
+                years: Math.max(0, years),
+                months: Math.max(0, months),
+                days: Math.max(0, days),
+                hours: Math.max(0, hours),
+                minutes: Math.max(0, minutes),
+                seconds: Math.max(0, seconds)
+            };
+        }
+
+        function startCounterInterval() {
+            if (timerIntervalId) clearInterval(timerIntervalId);
+
+            function tick() {
+                const start = parseLocalDateTime(anniversaryData.startDate);
+                const now = new Date();
+                const isFuture = start.getTime() > now.getTime();
+
+                const badge = document.getElementById('timerStatusBadge');
+                if (badge) {
+                    badge.textContent = isFuture
+                        ? 'Menghitung Mundur Menuju Hari Spesial'
+                        : 'Detik Demi Detik Kebersamaan';
+                }
+
+                const diff = calculateCalendarDiff(start, now);
+
+                document.getElementById('countYears').textContent = diff.years;
+                document.getElementById('countMonths').textContent = diff.months;
+                document.getElementById('countDays').textContent = diff.days;
+                document.getElementById('countHours').textContent = String(diff.hours).padStart(2, '0');
+                document.getElementById('countMinutes').textContent = String(diff.minutes).padStart(2, '0');
+                document.getElementById('countSeconds').textContent = String(diff.seconds).padStart(2, '0');
+            }
+
+            tick();
+            timerIntervalId = setInterval(tick, 1000);
+        }
+
+        function openDateModal() {
+            document.getElementById('inputCoupleTitle').value = anniversaryData.title;
+            document.getElementById('inputStartDate').value = anniversaryData.startDate;
+            const modal = document.getElementById('dateModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeDateModal() {
+            const modal = document.getElementById('dateModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleSaveAnniversary(e) {
+            e.preventDefault();
+            anniversaryData.title = document.getElementById('inputCoupleTitle').value.trim();
+            anniversaryData.startDate = document.getElementById('inputStartDate').value;
+            localStorage.setItem(STORAGE_KEY_ANNIVERSARY, JSON.stringify(anniversaryData));
+            updateAnniversaryUI();
+            startCounterInterval();
+            closeDateModal();
+            showToast('Tanggal spesial Zacky & Sivanka diperbarui!');
+        }
+
+        // --- 4. RENDER GALERI POLAROID & FILTER KATEGORI ---
+        function setFilter(category) {
+            activeFilter = category;
+            
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.dataset.filter === category) {
+                    btn.className = 'filter-btn active whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all bg-cocoa-800 text-white shadow-2xs';
+                } else {
+                    btn.className = 'filter-btn whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-cocoa-700 hover:bg-cream-100 border border-cream-200';
+                }
+            });
+
+            renderGallery();
+        }
+
+        function formatIndonesianDate(dateStr) {
+            const date = parseLocalDateTime(dateStr + 'T00:00');
+            return date.toLocaleDateString('id-ID', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+        }
+
+        function renderGallery() {
+            const grid = document.getElementById('galleryGrid');
+            const emptyState = document.getElementById('emptyState');
+            const emptyTitle = document.getElementById('emptyStateTitle');
+            const emptyDesc = document.getElementById('emptyStateDesc');
+
+            const sorted = [...memories].sort((a, b) => new Date(b.date) - new Date(a.date));
+            const filtered = activeFilter === 'Semua' 
+                ? sorted 
+                : sorted.filter(m => m.category === activeFilter);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+
+                if (memories.length === 0) {
+                    emptyTitle.textContent = 'Album Kenangan Kita Masih Menunggu Cerita Pertama';
+                    emptyDesc.textContent = 'Setiap foto menyimpan senyum dan tawa yang tak terulang. Yuk unggah potret kebersamaan Zacky & Sivanka yang paling berkesan untuk memulai galeri cinta ini!';
+                } else {
+                    emptyTitle.textContent = `Belum Ada Foto di Kategori "${activeFilter}"`;
+                    emptyDesc.textContent = 'Abadikan momen manis Zacky & Sivanka di kategori ini agar setiap halaman cerita kita terisi penuh.';
+                }
+
+                lucide.createIcons();
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            grid.innerHTML = filtered.map(item => `
+                <article onclick="openLightbox('${item.id}')" class="break-inside-avoid group cursor-pointer bg-white p-3.5 pb-5 rounded-3xl border border-cream-200/90 shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative">
+                    <!-- Pembungkus Gambar Polaroid -->
+                    <div class="relative overflow-hidden rounded-2xl bg-cream-100">
+                        <img 
+                            src="${item.image}" 
+                            alt="${escapeHtml(item.title)}" 
+                            loading="lazy"
+                            onerror="this.src='https://placehold.co/800x600/FAF7F2/4D413D?text=Zacky+%26+Sivanka'"
+                            class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                        >
+                        <!-- Badge Kategori -->
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-semibold bg-white/95 backdrop-blur-xs text-cocoa-800 shadow-2xs">
+                            ${escapeHtml(item.category)}
+                        </span>
+                        <!-- Tombol Hapus Cepat -->
+                        <button type="button" onclick="event.stopPropagation(); deleteMemory('${item.id}')" title="Hapus kenangan" class="opacity-0 group-hover:opacity-100 focus:opacity-100 absolute top-3 right-3 w-8 h-8 rounded-full bg-white/95 hover:bg-red-50 text-cocoa-700 hover:text-red-600 flex items-center justify-center shadow-2xs transition-all">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                    <!-- Konten Kartu Editorial -->
+                    <div class="pt-4 px-1.5">
+                        <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-cocoa-700/75 mb-2">
+                            <span class="inline-flex items-center gap-1 text-dusty-500 font-medium">
+                                <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                                ${formatIndonesianDate(item.date)}
+                            </span>
+                            ${item.location ? `
+                            <span class="inline-flex items-center gap-1 text-sage-600 font-medium">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+                                ${escapeHtml(item.location)}
+                            </span>` : ''}
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-cocoa-900 group-hover:text-dusty-500 transition-colors mb-2 leading-snug">
+                            ${escapeHtml(item.title)}
+                        </h3>
+                        <p class="text-sm text-cocoa-700/85 line-clamp-3 leading-relaxed">
+                            ${escapeHtml(item.story)}
+                        </p>
+                    </div>
+                </article>
+            `).join('');
+
+            lucide.createIcons();
+        }
+
+        // --- 5. TAMBAH KENANGAN BARU & KOMPRESI GAMBAR ---
+        function openAddModal() {
+            document.getElementById('memoryForm').reset();
+            clearSelectedImage();
+            switchImageMode('upload');
+            
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            document.getElementById('memDate').value = `${yyyy}-${mm}-${dd}`;
+            
+            const modal = document.getElementById('addModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeAddModal() {
+            const modal = document.getElementById('addModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function switchImageMode(mode) {
+            imageInputMode = mode;
+            const tabUpload = document.getElementById('tabUpload');
+            const tabUrl = document.getElementById('tabUrl');
+            const uploadBox = document.getElementById('uploadInputContainer');
+            const urlBox = document.getElementById('urlInputContainer');
+
+            if (mode === 'upload') {
+                tabUpload.className = 'py-2 text-xs sm:text-sm font-medium rounded-lg bg-white text-cocoa-900 shadow-2xs transition-all';
+                tabUrl.className = 'py-2 text-xs sm:text-sm font-medium rounded-lg text-cocoa-700 hover:text-cocoa-900 transition-all';
+                uploadBox.classList.remove('hidden');
+                urlBox.classList.add('hidden');
+            } else {
+                tabUrl.className = 'py-2 text-xs sm:text-sm font-medium rounded-lg bg-white text-cocoa-900 shadow-2xs transition-all';
+                tabUpload.className = 'py-2 text-xs sm:text-sm font-medium rounded-lg text-cocoa-700 hover:text-cocoa-900 transition-all';
+                urlBox.classList.remove('hidden');
+                uploadBox.classList.add('hidden');
+            }
+            clearSelectedImage();
+        }
+
+        function handleFilePreview(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const MAX_WIDTH = 900;
+                    let width = img.width;
+                    let height = img.height;
+
+                    if (width > MAX_WIDTH) {
+                        height *= MAX_WIDTH / width;
+                        width = MAX_WIDTH;
+                    }
+
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    selectedImageBase64 = canvas.toDataURL('image/jpeg', 0.8);
+                    showImagePreview(selectedImageBase64);
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function handleUrlPreview(url) {
+            if (url && url.trim().length > 8) {
+                selectedImageBase64 = url.trim();
+                showImagePreview(selectedImageBase64);
+            } else {
+                clearSelectedImage();
+            }
+        }
+
+        function showImagePreview(src) {
+            const wrapper = document.getElementById('imagePreviewWrapper');
+            const preview = document.getElementById('imagePreview');
+            preview.src = src;
+            wrapper.classList.remove('hidden');
+        }
+
+        function clearSelectedImage() {
+            selectedImageBase64 = '';
+            document.getElementById('photoFile').value = '';
+            document.getElementById('photoUrl').value = '';
+            document.getElementById('imagePreviewWrapper').classList.add('hidden');
+            document.getElementById('imagePreview').src = '';
+        }
+
+        function handleSaveMemory(e) {
+            e.preventDefault();
+
+            if (!selectedImageBase64) {
+                showToast('Pilih foto dari perangkat atau tempel tautan foto terlebih dahulu ya!');
+                return;
+            }
+
+            const title = document.getElementById('memTitle').value.trim();
+            const location = document.getElementById('memLocation').value.trim();
+            const date = document.getElementById('memDate').value;
+            const category = document.getElementById('memCategory').value;
+            const story = document.getElementById('memStory').value.trim();
+
+            const newMemory = {
+                id: 'zs-' + Date.now(),
+                title,
+                location,
+                date,
+                category,
+                image: selectedImageBase64,
+                story
+            };
+
+            memories.unshift(newMemory);
+            saveMemoriesToStorage();
+            
+            setFilter('Semua');
+            closeAddModal();
+            showToast('Kenangan Zacky & Sivanka berhasil disimpan!');
+        }
+
+        // --- 6. LIGHTBOX DETAIL FOTO & HAPUS KENANGAN ---
+        function openLightbox(id) {
+            const item = memories.find(m => m.id === id);
+            if (!item) return;
+
+            document.getElementById('lbImage').src = item.image;
+            document.getElementById('lbCategory').textContent = item.category;
+            document.getElementById('lbDate').textContent = formatIndonesianDate(item.date);
+            document.getElementById('lbLocation').textContent = item.location || 'Tempat Spesial Kita';
+            document.getElementById('lbTitle').textContent = item.title;
+            document.getElementById('lbStory').textContent = item.story;
+            
+            const deleteBtn = document.getElementById('lbDeleteBtn');
+            deleteBtn.onclick = () => deleteMemory(item.id);
+
+            const modal = document.getElementById('lightboxModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightboxModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function deleteMemory(id) {
+            memories = memories.filter(m => m.id !== id);
+            saveMemoriesToStorage();
+            closeLightbox();
+            renderGallery();
+            showToast('Kenangan telah dihapus dari album.');
+        }
+
+        // --- 7. UTILITAS ---
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').textContent = message;
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 3200);
+        }
+
+        function handleBackdropClick(e, modalId) {
+            if (e.target.id === modalId) {
+                document.getElementById(modalId).classList.add('hidden');
+                document.getElementById(modalId).classList.remove('flex');
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text || '';
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>
